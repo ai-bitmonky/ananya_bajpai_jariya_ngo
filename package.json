@@ -1,0 +1,25 @@
+{
+  "name": "zariya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zariya — learn a skill, find schemes you qualify for, and find work close to home. Built for rural women in India.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "15.5.26",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "typescript": "5.8.3"
+  },
+  "engines": { "node": ">=18.18" }
+}

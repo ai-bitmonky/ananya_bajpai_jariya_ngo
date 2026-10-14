@@ -1,0 +1,7 @@
+/* Global base shared by both layouts. Layout-specific styles live in components/mobile/mobile.css and components/desktop/desktop.css */
+html.big { font-size: 17.5px; }
+html.big body { --fs-body: 17.5px; --fs-sm: 15.5px; --fs-xs: 14px; }
+html[lang='hi'] h1, html[lang='hi'] h2, html[lang='hi'] h3 { line-height: 1.28; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.boot { min-height: 100dvh; display: grid; place-items: center; background: var(--bg); }
+.boot .wordmark { font-size: 56px; color: var(--accent); }

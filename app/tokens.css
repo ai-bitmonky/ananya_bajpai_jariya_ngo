@@ -1,0 +1,119 @@
+/* ZARIYA ज़रिया — design tokens (single source of truth for mobile + desktop)
+   Layout concept: warm cream canvas, maroon as the ONE bold colour, blush for soft surfaces,
+   outlined Devanagari wordmark as motif. No pure black, no pure white, no mid-grey. */
+
+
+:root{
+  /* brand */
+  --maroon:#7B1E2E;        /* primary – buttons, active tab, wordmark */
+  --maroon-deep:#5E1423;   /* pressed, dark gradients */
+  --maroon-soft:#9A3A49;   /* hover, secondary emphasis */
+  --blush:#E9CCCF;         /* soft surfaces, chips */
+  --blush-pale:#F6E6E7;    /* tints, selected rows */
+  --rose:#C4616F;          /* progress fills on light surfaces */
+  --cream:#FBF4EE;         /* page background */
+  --cream-deep:#F3E8DF;    /* sunken areas, inputs */
+  --paper:#FFFBF8;         /* cards (never #fff) */
+  --ink:#2B1A1D;           /* primary text (maroon-biased near-black) */
+  --ink-2:#5C4A4D;         /* secondary text */
+  --ink-3:#8E7B7E;         /* tertiary / placeholders */
+  --line:#E6D6D2;          /* hairlines */
+  --gold:#C99A3C;          /* certificate, stars, "for me" match */
+  --gold-pale:#F5E7C6;
+  --leaf:#4E7D5B;          /* success / eligible */
+  --leaf-pale:#DDEBE0;
+  --sky:#3F6E8C;           /* info / links inside content */
+  --sky-pale:#DCE8F0;
+  --alert:#B4432F;         /* urgency ("5 seats left") */
+  --alert-pale:#F6DCD6;
+
+  /* semantic aliases (components use these) */
+  --bg:var(--cream);
+  --bg-2:var(--cream-deep);
+  --surface:var(--paper);
+  --surface-2:var(--blush-pale);
+  --fg:var(--ink);
+  --fg-2:var(--ink-2);
+  --fg-3:var(--ink-3);
+  --accent:var(--maroon);
+  --accent-fg:#FFF6F3;
+  --accent-soft:var(--blush);
+  --border:var(--line);
+  --focus:0 0 0 3px rgba(123,30,46,.28);
+
+  /* type */
+  --font-display:'Baloo 2','Mukta',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-body:'Mukta','Baloo 2',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --fs-hero:34px;  --fs-h1:26px; --fs-h2:20px; --fs-h3:17px;
+  --fs-body:16px;  --fs-sm:14px; --fs-xs:12.5px; --fs-micro:11px;
+  --lh-tight:1.15; --lh-body:1.5;
+
+  /* shape */
+  --r-xs:8px; --r-sm:12px; --r-md:16px; --r-lg:22px; --r-xl:28px; --r-pill:999px;
+
+  /* elevation (maroon-tinted, never grey) */
+  --sh-1:0 1px 2px rgba(94,20,35,.06), 0 1px 3px rgba(94,20,35,.05);
+  --sh-2:0 6px 18px rgba(94,20,35,.10), 0 1px 3px rgba(94,20,35,.06);
+  --sh-3:0 18px 48px rgba(94,20,35,.18);
+  --sh-up:0 -8px 24px rgba(94,20,35,.10);
+
+  /* motion */
+  --ease-standard:cubic-bezier(.4,0,.2,1);
+  --ease-emphasized:cubic-bezier(.2,0,0,1);
+  --ease-arrive:cubic-bezier(.16,1,.3,1);   /* screens, sheets entering */
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --dur-fast:160ms; --dur-std:280ms; --dur-slow:420ms; --dur-arrive:560ms;
+
+  /* spacing scale: 4 8 12 16 20 24 32 40 48 64 */
+  --tap:48px;               /* minimum touch target */
+  color-scheme:light;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1A1113; --bg-2:#221619; --surface:#261A1D; --surface-2:#33232A;
+    --fg:#F6E9E6; --fg-2:#CDB7B9; --fg-3:#9A8588;
+    --accent:#D96F7E; --accent-fg:#1F0E12; --accent-soft:#4A2A33;
+    --border:#3B2A2E; --focus:0 0 0 3px rgba(217,111,126,.35);
+    --blush-pale:#33232A; --blush:#4A2A33; --cream-deep:#221619; --paper:#261A1D;
+    --gold:#E2B45C; --gold-pale:#3E3220; --leaf:#7DB38A; --leaf-pale:#223328;
+    --sky:#7FA9C4; --sky-pale:#1F2E38; --alert:#E07A66; --alert-pale:#3E241F;
+    --rose:#D96F7E;
+    --sh-1:0 1px 2px rgba(0,0,0,.4); --sh-2:0 6px 18px rgba(0,0,0,.45); --sh-3:0 18px 48px rgba(0,0,0,.6); --sh-up:0 -8px 24px rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1A1113; --bg-2:#221619; --surface:#261A1D; --surface-2:#33232A;
+  --fg:#F6E9E6; --fg-2:#CDB7B9; --fg-3:#9A8588;
+  --accent:#D96F7E; --accent-fg:#1F0E12; --accent-soft:#4A2A33;
+  --border:#3B2A2E; --focus:0 0 0 3px rgba(217,111,126,.35);
+  --blush-pale:#33232A; --blush:#4A2A33; --cream-deep:#221619; --paper:#261A1D;
+  --gold:#E2B45C; --gold-pale:#3E3220; --leaf:#7DB38A; --leaf-pale:#223328;
+  --sky:#7FA9C4; --sky-pale:#1F2E38; --alert:#E07A66; --alert-pale:#3E241F;
+  --rose:#D96F7E;
+  --sh-1:0 1px 2px rgba(0,0,0,.4); --sh-2:0 6px 18px rgba(0,0,0,.45); --sh-3:0 18px 48px rgba(0,0,0,.6); --sh-up:0 -8px 24px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+
+/* base */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+h1,h2,h3,.display{font-family:var(--font-display);line-height:var(--lh-tight);text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.01em}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none;padding:0}
+:focus-visible{outline:none;box-shadow:var(--focus)}
+.num{font-variant-numeric:tabular-nums}
+.eyebrow{font-size:var(--fs-micro);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg-3)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* signature motif: outlined Devanagari wordmark */
+.wordmark{font-family:var(--font-display);font-weight:800;letter-spacing:-.02em}
+.wordmark--outline{color:transparent;-webkit-text-stroke:1.5px currentColor;opacity:.22}
+
+/* block-print texture (use as background-image on hero/brand bands, opacity via colour alpha) */
+/* a 4-petal "buta" motif — tile 56px */
+:root{
+  --buta:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'><g fill='none' stroke='rgba(255,246,243,0.16)' stroke-width='1.2'><path d='M28 10c4 6 4 12 0 18-4-6-4-12 0-18zM28 28c4 6 4 12 0 18-4-6-4-12 0-18zM10 28c6-4 12-4 18 0-6 4-12 4-18 0zM28 28c6-4 12-4 18 0-6 4-12 4-18 0z'/><circle cx='28' cy='28' r='2.2'/><circle cx='4' cy='4' r='1.2'/><circle cx='52' cy='52' r='1.2'/></g></svg>");
+}
