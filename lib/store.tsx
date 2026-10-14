@@ -10,6 +10,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { ZARIYA, type Bi, type Course, type Lang } from './data';
 import { EXTRA } from './strings';
+import { M_EXTRA } from './strings.mobile';
+import { D_EXTRA } from './strings.desktop';
 
 export type ThemePref = 'system' | 'light' | 'dark';
 
@@ -67,7 +69,7 @@ function isoDaysAgo(n: number) {
 
 const KEY = 'zariya:v1';
 
-type Strings = typeof ZARIYA.i18n & typeof EXTRA;
+type Strings = typeof ZARIYA.i18n & typeof EXTRA & typeof M_EXTRA & typeof D_EXTRA;
 export type Key = keyof Strings;
 
 interface Ctx {
@@ -137,7 +139,7 @@ export function ZProvider({ children }: { children: ReactNode }) {
   const value = useMemo<Ctx>(() => {
     const lang = s.lang;
     const L = (o: Bi | null | undefined) => (o ? (o[lang] ?? o.en) : '');
-    const all = { ...ZARIYA.i18n, ...EXTRA } as Record<string, { en: unknown; hi: unknown }>;
+    const all = { ...ZARIYA.i18n, ...EXTRA, ...M_EXTRA, ...D_EXTRA } as Record<string, { en: unknown; hi: unknown }>;
     const t = (k: Key, vars?: Record<string, string | number>) => {
       const e = all[k as string];
       if (!e) return String(k);
